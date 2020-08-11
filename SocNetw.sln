@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocNetw", "SocNetw\SocNetw.csproj", "{52D7F6F7-F0DA-4090-805A-6DE0C2F3AD0C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52D7F6F7-F0DA-4090-805A-6DE0C2F3AD0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52D7F6F7-F0DA-4090-805A-6DE0C2F3AD0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52D7F6F7-F0DA-4090-805A-6DE0C2F3AD0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52D7F6F7-F0DA-4090-805A-6DE0C2F3AD0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {380B3030-A76A-44F0-AA8B-5AA77EBF838E}
+	EndGlobalSection
+EndGlobal
