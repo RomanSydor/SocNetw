@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SocNetw.DAL;
 
 namespace SocNetw.DAL.Migrations
 {
     [DbContext(typeof(SocNetwContext))]
-    partial class SocNetwContextModelSnapshot : ModelSnapshot
+    [Migration("20200812210756_AccountEntities")]
+    partial class AccountEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

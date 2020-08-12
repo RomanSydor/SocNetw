@@ -8,12 +8,14 @@ namespace SocNetw.DAL
     {
         public SocNetwContext(DbContextOptions<SocNetwContext> options) : base(options)
         {
+            //Database.EnsureDeleted();
+            //Database.EnsureCreated();
             Database.Migrate();
         }
 
-        public DbSet<Account> Accounts { get; set; }
+        public DbSet<AccountEntity> AccountEntities { get; set; }
 
-        public DbSet<Credentials> Credentials { get; set; }
+        public DbSet<CredentialsEntity> CredentialsEntities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

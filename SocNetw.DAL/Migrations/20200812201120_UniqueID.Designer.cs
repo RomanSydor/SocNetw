@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SocNetw.DAL;
 
 namespace SocNetw.DAL.Migrations
 {
     [DbContext(typeof(SocNetwContext))]
-    partial class SocNetwContextModelSnapshot : ModelSnapshot
+    [Migration("20200812201120_UniqueID")]
+    partial class UniqueID
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,7 +21,7 @@ namespace SocNetw.DAL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SocNetw.DAL.Models.AccountEntity", b =>
+            modelBuilder.Entity("SocNetw.DAL.Models.Account", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -47,10 +49,10 @@ namespace SocNetw.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AccountEntities");
+                    b.ToTable("Accounts");
                 });
 
-            modelBuilder.Entity("SocNetw.DAL.Models.CredentialsEntity", b =>
+            modelBuilder.Entity("SocNetw.DAL.Models.Credentials", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -69,14 +71,14 @@ namespace SocNetw.DAL.Migrations
                     b.HasIndex("AccountId")
                         .IsUnique();
 
-                    b.ToTable("CredentialsEntities");
+                    b.ToTable("Credentials");
                 });
 
-            modelBuilder.Entity("SocNetw.DAL.Models.CredentialsEntity", b =>
+            modelBuilder.Entity("SocNetw.DAL.Models.Credentials", b =>
                 {
-                    b.HasOne("SocNetw.DAL.Models.AccountEntity", "AccountEntity")
-                        .WithOne("CredentialsEntity")
-                        .HasForeignKey("SocNetw.DAL.Models.CredentialsEntity", "AccountId")
+                    b.HasOne("SocNetw.DAL.Models.Account", "Account")
+                        .WithOne("Credentials")
+                        .HasForeignKey("SocNetw.DAL.Models.Credentials", "AccountId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

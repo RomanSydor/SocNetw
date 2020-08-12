@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SocNetw.DAL.Repositories;
+using SocNetw.Core.Models;
 
 namespace SocNetw.Controllers
 {
@@ -10,10 +12,35 @@ namespace SocNetw.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        IAccountRepository _accountRepository;
+
+        public ValuesController(IAccountRepository repo)
+        {
+            _accountRepository = repo;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
+            _accountRepository.CreateNewAccount(
+                new Credentials
+                {
+                    Login = "111@gmail.com",
+                    Password = "1111"
+                },
+                new Account()
+                {
+                    FirstName = "111",
+                    LastName = "111",
+                    UniqueID = Guid.NewGuid()
+                }
+                );
+            var finded = _accountRepository.FindAccount(x => x.FirstName == "111");
+            if(finded != null)
+                _accountRepository.EditAccount(finded, x => {
+                    x.FirstName = "Nazar";
+                });
             return new string[] { "value1", "value2" };
         }
 

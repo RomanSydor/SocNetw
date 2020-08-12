@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SocNetw.DAL;
+using SocNetw.DAL.Models;
+using SocNetw.DAL.Repositories;
 
 namespace SocNetw
 {
@@ -29,6 +31,8 @@ namespace SocNetw
         {
             services.AddDbContext<SocNetwContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("SocNetwConnection")));
+
+            services.AddScoped(typeof(IAccountRepository), typeof(AccountRepository));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
