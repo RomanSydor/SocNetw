@@ -32,6 +32,23 @@ namespace SocNetw.DAL.Models
 
         public CredentialsEntity CredentialsEntity { get; set; }
 
+        internal static Account MapToModel(AccountEntity account)
+        {
+            var result = new Account()
+            {
+                UniqueID = account.UniqueID,
+                FirstName = account.FirstName,
+                DateOfBirth = account.DateOfBirth,
+                Description = account.Description,
+                Email = account.Email,
+                Gender = account.Gender,
+                LastName = account.LastName,
+                PhoneNubmer = account.PhoneNubmer,
+                TitleDescription = account.TitleDescription
+            };
+            return result;
+        }
+
         internal static AccountEntity MapFromModel(Account account)
         {
             var result = new AccountEntity()

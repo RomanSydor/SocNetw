@@ -57,7 +57,7 @@ namespace SocNetw.DAL.Repositories
 
         public IEnumerable<Account> FindAll(Func<Account, bool> searchFunction)
         {
-            return _ctx.AccountEntities.Where(x => searchFunction(x));
+            return _ctx.AccountEntities.Where(x => searchFunction(x)).Select(x=>AccountEntity.MapToModel(x));
         }
 
         public Account FindAccount(Func<Account, bool> searchFunction)

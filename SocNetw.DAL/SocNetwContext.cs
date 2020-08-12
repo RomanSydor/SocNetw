@@ -8,9 +8,9 @@ namespace SocNetw.DAL
     {
         public SocNetwContext(DbContextOptions<SocNetwContext> options) : base(options)
         {
-            //Database.EnsureDeleted();
-            //Database.EnsureCreated();
-            Database.Migrate();
+            Database.EnsureDeleted();
+            Database.EnsureCreated();
+            //Database.Migrate();
         }
 
         public DbSet<AccountEntity> AccountEntities { get; set; }
